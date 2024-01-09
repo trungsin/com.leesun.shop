@@ -3,8 +3,8 @@
 // !dmbg
 const {model, Schema, Types} = require('mongoose'); // Erase if already required
 
-const DOCUMENT_NAME = 'Shop'
-const COLLECTION_NAME = 'Shops'
+// const DOCUMENT_NAME = 'Shop'
+//const COLLECTION_NAME = 'Shops'
 // Declare the Schema of the Mongo model
 var shopSchema = new Schema({
     name:{
@@ -36,8 +36,8 @@ var shopSchema = new Schema({
     },
 }, {
     timestamps:true,
-    collection: COLLECTION_NAME
+    collection: 'Shops'
 });
 
 //Export the model
-module.exports = model(DOCUMENT_NAME, shopSchema);
+module.exports = model('Shop', shopSchema);

@@ -4,6 +4,7 @@ const express = require("express")
 const accessController = require('../../controllers/access.controller')
 const router = express.Router()
 
+
 //singUp
 router.post('/shop/signup', accessController.signUp)
 
