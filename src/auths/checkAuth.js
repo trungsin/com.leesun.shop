@@ -19,7 +19,7 @@ const apiKey = async(req, res, next) => {
         const objKey = await findKeyById(key)
         if(!objKey){
             return res.status(403).json({
-                message: 'Forbidden Error'
+                message: 'Forbidden Error(!=null)'
             })
         }
         req.objKey = objKey
@@ -30,7 +30,7 @@ const apiKey = async(req, res, next) => {
 }
 const permission = (permission) => {
     return (req, res, next) =>{
-        if (req.objKey.permissions) {
+        if (req.objKey.permission) {
             return res.status(403).json({
                 message: 'Permission dined!'
             })
@@ -42,11 +42,11 @@ const permission = (permission) => {
                 message: 'Permission do not valid!'
             })
         }
+        console.log('check permission done!');
         return next()
     }
 }
-
 module.exports = {
     apiKey,
-    permission
+    permission,
 }

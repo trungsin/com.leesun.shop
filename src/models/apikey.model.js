@@ -21,7 +21,7 @@ var apiKeySchema = new Schema({
         enum:['0000','1111','2222']
     },
 },{
-    collation: COLLECTION_NAME,
+    collection: COLLECTION_NAME,
     timestamps:true
 });
 

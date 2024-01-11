@@ -2,7 +2,7 @@
 ### signup
 POST {{url_dev}}/shop/signup
 Content-Type: application/json
-x-api-key: 2b63118d07e04f209a4defb7f5c697d0cfa78da50180e48c8fe688701439c8dc02d059cb79a8377dcd237e575d993b00e19afa50f7288e4d0c220cee24b3b48b
+x-api-key: f307f7ed5015bb5426f2fc2bede153d487677f9a5172db8dba2239e075553d1bdc77be7f1879187e6bc1e6512522dc29f4528e6114aeef792154ae4d24afdf0d
 
 {
     "name": "Shop Lee Sun",

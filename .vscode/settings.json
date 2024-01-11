@@ -4,6 +4,7 @@
         "apikey",
         "Apikeys",
         "auths",
-        "bycrypt"
+        "bycrypt",
+        "REFRESHTOKEN"
     ]
 }
