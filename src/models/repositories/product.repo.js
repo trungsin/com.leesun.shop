@@ -1,4 +1,5 @@
 'use strict'
+const { getSelectData, getUnSelectData } = require('../../utils')
 const { product,electronic,clothing,furniture} = require('../product.models')
 const {Types} = require('mongoose')
 const findAllDraftsForShop = async({query, limit, skip}) => {
@@ -39,6 +40,21 @@ const unPublishProductByShop = async({product_shop, product_id}) =>{
     const {modifiedCount} = await fountShop.updateOne(fountShop)
     return modifiedCount
 }
+const findAllProducts =  async({limit, sort, page, filter, select}) => {
+    const skip = (page) * limit;
+    const sortBy = sort === 'ctime' ? {_id :-1} : {_id:1}
+    const products = await product.find( filter)
+    .sort(sortBy)
+    // .skip(limit)
+    .select(getSelectData(select))
+    .lean()
+
+    return products
+}
+
+const findProduct =  async({product_id, unSelect}) => {
+    return await product.findById(product_id).select(getUnSelectData(unSelect))
+}
 const queryProduct = async({query, limit, skip}) =>{
     return await product.find(query).
     populate('product_shop', 'name email -_id')
@@ -53,5 +69,7 @@ module.exports = {
     publishProductByShop,
     findAllPublishedForShop,
     unPublishProductByShop,
-    searchProductsByUser
+    searchProductsByUser,
+    findAllProducts,
+    findProduct
 }
